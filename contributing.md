@@ -12,7 +12,7 @@ Make sure you UNCHECK the copy only main branch while forking the repository
 ```
 #### 2. Clone your forked repository
 ```sh
-git clone https://github.com/itsmohit097/medi-hub.git
+git clone <your-forked-repo-url>
 ```
 #### 3. Change the directory and install dependencies :
 ```shell

@@ -66,7 +66,7 @@ The project repository is organized as follows:
 
 #### 2. Clone your forked repository
 ```sh
-git clone https://github.com/itsmohit097/medi-hub.git
+git clone <your-forked-repo-url>
 ```
 #### 3. Change the directory and install dependencies :
 ```shell
@@ -88,8 +88,8 @@ git clone https://github.com/itsmohit097/medi-hub.git
    
 ## 🙌 Contributing
 
-> **Warning**: Please do not spam the repository with unnecessary PRs. Make sure to follow the project's [Code of Conduct](https://github.com/itsmohit097/medi-hub/blob/main/CODE_OF_CONDUCT.md).
+> **Warning**: Please do not spam the repository with unnecessary PRs. Make sure to follow the project's [Code of Conduct](CODE_OF_CONDUCT.md).
 
-- Go through the [CONTRIBUTING.md](https://github.com/itsmohit097/medi-hub/blob/main/contributing.md) file, where all the guidelines have been mentioned that will guide you to make your contribution.
-- Do check out the [project issue tracker](https://github.com/itsmohit097/medi-hub/issues) section.
+- Go through the [CONTRIBUTING.md](contributing.md) file, where all the guidelines have been mentioned that will guide you to make your contribution.
+- Do check out the project issue tracker section.
 - Do not raise any issues regarding READNE.md file.
