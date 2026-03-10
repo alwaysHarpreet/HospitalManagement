@@ -5,8 +5,7 @@ import { useState } from "react";
 
 import { toast } from "react-toastify";
 // icons
-import { FaInstagram } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
+import { FaInstagram, FaLinkedin, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaHeartbeat } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 function Footer() {
@@ -20,12 +19,20 @@ function Footer() {
       display: "About Us",
     },
     {
+      path: "/alldoctors",
+      display: "Find a Doctor",
+    },
+    {
+      path: "/medicines/all",
+      display: "Pharmacy",
+    },
+    {
       path: "/privacypolicy",
       display: "Privacy Policy",
     },
     {
       path: "/termsandconditions",
-      display: "Terms and Conditions",
+      display: "Terms & Conditions",
     },
   ];
 
@@ -59,47 +66,34 @@ function Footer() {
       <div className="footer__inner">
         {/* footer top */}
         <div className="footer__top">
-          {/* Title */}
+          {/* Brand */}
           <div className="footer__brand">
-            <h1 className="footer__brand-title">
-              HealthMatrix
-            </h1>
-            {/* desc */}
+            <div className="footer__brand-logo">
+              <FaHeartbeat className="footer__brand-logo-icon" />
+              <h1 className="footer__brand-title">HealthMatrix</h1>
+            </div>
             <p className="footer__brand-desc">
-              HealthMatrix is a web-based platform facilitating seamless management
-              of healthcare services, including appointments, patient records,
-              and doctor interactions.
+              Your trusted partner in healthcare management. We connect patients
+              with expert doctors, streamline appointments, and ensure quality
+              care — all through one secure, intuitive platform.
             </p>
             {/* icons */}
             <div className="footer__social-icons">
-              <div className="footer__social-btn">
-                <a
-                  href="#"
-                >
-                  <FaInstagram />
-                </a>
-              </div>
-              <div className="footer__social-btn">
-                <a
-                  href="#"
-                >
-                  <FaLinkedin />
-                </a>
-              </div>
-              <div className="footer__social-btn">
-                <a
-                  href="#"
-                >
-                  <FaXTwitter />
-                </a>
-              </div>
+              <a href="#" className="footer__social-btn" aria-label="Instagram">
+                <FaInstagram />
+              </a>
+              <a href="#" className="footer__social-btn" aria-label="LinkedIn">
+                <FaLinkedin />
+              </a>
+              <a href="#" className="footer__social-btn" aria-label="Twitter">
+                <FaXTwitter />
+              </a>
             </div>
           </div>
+
           {/* Quick links */}
           <div className="footer__links">
-            <h1 className="footer__links-title">
-              Quick Links
-            </h1>
+            <h2 className="footer__links-title">Quick Links</h2>
             <ul className="footer__links-list">
               {navLinks.map((link, index) => (
                 <li key={index}>
@@ -113,58 +107,37 @@ function Footer() {
               ))}
             </ul>
           </div>
-          {/* Contact US */}
-          {/* <form
-            onSubmit={handleMessage}
-            className="cols-span-1 md:col-span-5 grid gap-y-5"
-          >
-            <h1 className="text-left text-xl font-bold text-black/80">
-              Contact Us
-            </h1>
-            <div className="relative flex justify-left space-y-7">
-              <label
-                htmlFor="email"
-                className="text-md font-normal absolute top-0 left-0"
-              >
-                Email
-              </label>
-              <input
-                type="text"
-                placeholder="Enter you email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="px-3 py-3 rounded-md  grow"
-              />
-            </div>
-            <div className="relative flex justify-left space-y-7">
-              <label
-                htmlFor="message"
-                className="text-md font-normal absolute top-0 left-0"
-              >
-                Message
-              </label>
-              <textarea
-                rows={7}
-                placeholder="Write Your Message Here"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                className="px-3 py-3 rounded-md grow"
-              />
-            </div>
-            <button
-              type="submit"
-              className="grow bg-main_theme text-white py-3 rounded-md"
-            >
-              Send Message
-            </button>
-          </form> */}
+
+          {/* Contact info */}
+          <div className="footer__contact">
+            <h2 className="footer__contact-title">Get in Touch</h2>
+            <ul className="footer__contact-list">
+              <li className="footer__contact-item">
+                <FaPhoneAlt className="footer__contact-icon" />
+                <span>+91 98765 43210</span>
+              </li>
+              <li className="footer__contact-item">
+                <FaEnvelope className="footer__contact-icon" />
+                <span>support@healthmatrix.in</span>
+              </li>
+              <li className="footer__contact-item">
+                <FaMapMarkerAlt className="footer__contact-icon" />
+                <span>Hyderabad, Telangana, India</span>
+              </li>
+            </ul>
+          </div>
         </div>
+
+        {/* divider */}
+        <div className="footer__divider"></div>
 
         {/* footer bottom */}
         <div className="footer__bottom">
-          {/* copyright */}
           <p className="footer__copyright">
-            © {new Date().getFullYear()} Harish Reddy. All rights reserved.
+            &copy; {new Date().getFullYear()} HealthMatrix. All rights reserved.
+          </p>
+          <p className="footer__bottom-tagline">
+            Designed with care for better healthcare.
           </p>
         </div>
       </div>

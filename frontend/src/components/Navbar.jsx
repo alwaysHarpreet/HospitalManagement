@@ -5,9 +5,6 @@ import { toast } from "react-toastify";
 
 // react icons
 import {
-  FaDiscord,
-  FaGithub,
-  FaLinkedinIn,
   FaBars,
   FaTimes,
 } from "react-icons/fa";
@@ -78,19 +75,7 @@ function Navbar() {
     navigate("/medicines/cart");
   };
 
-  const socialLinks = [
-    {
-      to: "#",
-      label: "github",
-      icon: FaGithub,
-    },
-    {
-      to: "#",
-      label: "linkedin",
-      icon: FaLinkedinIn,
-    },
-    { to: "#", label: "discord", icon: FaDiscord },
-  ];
+
 
   return (
     <div className="navbar">
@@ -193,11 +178,6 @@ function Navbar() {
             </div>
           </div>
 
-          {socialLinks.map((socialLink, index) => (
-            <NavLink key={index} to={socialLink.to} target="_blank">
-              <socialLink.icon className="navbar__social-icon" />
-            </NavLink>
-          ))}
         </div>
       </div>
 
@@ -270,15 +250,6 @@ function Navbar() {
                   </NavLink>
                 )}
               </li>
-
-              {/* Social Icons (mobile) */}
-              <div className="navbar__mobile-social">
-                {socialLinks.map((socialLink, index) => (
-                  <NavLink key={index} to={socialLink.to} target="_blank">
-                    <socialLink.icon className="navbar__mobile-social-icon" />
-                  </NavLink>
-                ))}
-              </div>
 
               {/* Cart (mobile) */}
               <div className="navbar__mobile-cart">

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-// import { axios } from "../../import-export/ImportExport";
 import { toast } from "react-toastify";
 import axios from "axios";
+import { FaStar, FaQuoteLeft, FaHeart, FaShieldAlt, FaUserMd } from "react-icons/fa";
 
 function Testimonials() {
   const [testimonial, setTestimonial] = useState("");
@@ -21,24 +21,11 @@ function Testimonials() {
         );
         setTestimonial(response.data.data);
       } catch (error) {
-        console.error("Error fetching doctors:", error);
+        console.error("Error fetching testimonials:", error);
       }
     };
     fetchTestimonials();
   }, []);
-  // const [currentIndex, setCurrentIndex] = useState(0);
-
-  // const handleNext = () => {
-  //   setCurrentIndex((prevIndex) =>
-  //     prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
-  //   );
-  // };
-
-  // const handlePrev = () => {
-  //   setCurrentIndex((prevIndex) =>
-  //     prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
-  //   );
-  // };
 
   const handleFeedback = async (e) => {
     e.preventDefault();
@@ -67,153 +54,199 @@ function Testimonials() {
     }
   };
 
+  const renderStars = (count = 5) =>
+    Array.from({ length: count }, (_, i) => (
+      <FaStar key={i} className="testimonials__star-icon" />
+    ));
+
   return (
     <main className="testimonials">
       <section className="testimonials__inner">
         {/* Text container */}
         <div className="testimonials__text">
           <div className="testimonials__text-inner">
-            <h3 className="testimonials__label">Testimonial</h3>
+            <span className="testimonials__label">
+              <FaHeart className="testimonials__label-icon" />
+              Patient Testimonials
+            </span>
             <h1 className="testimonials__title">
-              What They Say?
+              Trusted by Thousands <br />
+              <span className="testimonials__title-accent">of Patients Worldwide</span>
             </h1>
             <p className="testimonials__desc">
-              HealthMatrix has got more than
+              With over
               <span className="testimonials__desc-highlight">
-                10k positive ratings
-              </span>{" "}
-              from our users around the world.
+                {" "}10,000+ positive ratings
+              </span>,{" "}
+              HealthMatrix is committed to delivering compassionate, reliable, and
+              world-class healthcare experiences.
             </p>
-            <p className="testimonials__desc">
-              Some of the Doctors and Paitient were greatly helped by the
-              Medi-Hub.
-            </p>
-            <p className="testimonials__desc">
-              Are you too? Please give your feedback.
-            </p>
+
+            {/* trust badges */}
+            <div className="testimonials__trust-badges">
+              <div className="testimonials__badge">
+                <FaShieldAlt className="testimonials__badge-icon" />
+                <span>Verified Reviews</span>
+              </div>
+              <div className="testimonials__badge">
+                <FaUserMd className="testimonials__badge-icon" />
+                <span>50+ Specialists</span>
+              </div>
+            </div>
 
             {/* Feedback cta */}
             <button
               onClick={() => setShowForm(true)}
               className="testimonials__cta"
             >
-              Send Your Feedback &#8594;
+              Share Your Experience
+              <span className="testimonials__cta-arrow">&#8594;</span>
             </button>
           </div>
         </div>
 
         {/* Testimonial cards container */}
         <div className="testimonials__cards">
-          {/* image container */}
-          <div className="testimonials__image-container">
-            <img
-              src="https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg"
-              alt="image"
-              className="testimonials__image"
-            />
-
-            {/* feedback messasges and ratings */}
-            <div className="testimonials__feedback-card">
-              {/* feeback msg  */}
-              <div style={{overflow: 'hidden'}}>
-                <p className="testimonials__feedback-msg">
-                  Loved the expirence at medi-hub, best health care system that
-                  make the user life eaiser.
-                </p>
-              </div>
-
-              {/* name and rating stars */}
-              <div className="testimonials__feedback-footer">
-                <div className="testimonials__feedback-name">
-                  <h4>
-                    Parth kumar
-                  </h4>
+          <div className="testimonials__cards-grid">
+            {/* Primary card */}
+            <div className="testimonials__card testimonials__card--primary">
+              <FaQuoteLeft className="testimonials__quote-icon" />
+              <p className="testimonials__card-text">
+                HealthMatrix transformed my healthcare journey. The doctors are
+                incredibly attentive and the appointment system is seamless. Best
+                healthcare platform I have ever used.
+              </p>
+              <div className="testimonials__card-footer">
+                <div className="testimonials__card-avatar">
+                  <img
+                    src="https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg"
+                    alt="Parth Kumar"
+                  />
                 </div>
-                <div className="testimonials__feedback-stars">stars</div>
+                <div className="testimonials__card-info">
+                  <h4 className="testimonials__card-name">Parth Kumar</h4>
+                  <p className="testimonials__card-role">Patient</p>
+                </div>
+                <div className="testimonials__card-stars">
+                  {renderStars(5)}
+                </div>
               </div>
             </div>
-            {/* <h4 className="font-bold text-center">
-              {testimonials[currentIndex].profile}
-            </h4>
-            <p className="text-sm text-center mb-6">
-              {testimonials[currentIndex].country},{" "}
-              {testimonials[currentIndex].state}
-            </p>
-            <p className="mt-2 text-center">
-              {testimonials[currentIndex].review}
-            </p>
-            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-4">
-              <button
-                onClick={handlePrev}
-                className="bg-white bg-opacity-50 text-black rounded-full p-2 hover:bg-opacity-100"
-              >
-                &#8592;
-              </button>
-              <button
-                onClick={handleNext}
-                className="bg-white bg-opacity-50 text-black rounded-full p-2 hover:bg-opacity-100"
-              >
-                &#8594;
-              </button>
-            </div> */}
+
+            {/* Secondary card */}
+            <div className="testimonials__card testimonials__card--secondary">
+              <FaQuoteLeft className="testimonials__quote-icon" />
+              <p className="testimonials__card-text">
+                Booking appointments has never been easier. The platform is intuitive
+                and the medical team responds promptly. Highly recommended for families.
+              </p>
+              <div className="testimonials__card-footer">
+                <div className="testimonials__card-avatar">
+                  <img
+                    src="https://randomuser.me/api/portraits/women/44.jpg"
+                    alt="Ananya Sharma"
+                  />
+                </div>
+                <div className="testimonials__card-info">
+                  <h4 className="testimonials__card-name">Ananya Sharma</h4>
+                  <p className="testimonials__card-role">Patient</p>
+                </div>
+                <div className="testimonials__card-stars">
+                  {renderStars(5)}
+                </div>
+              </div>
+            </div>
+
+            {/* Tertiary card */}
+            <div className="testimonials__card testimonials__card--tertiary">
+              <FaQuoteLeft className="testimonials__quote-icon" />
+              <p className="testimonials__card-text">
+                Excellent care and truly professional staff. The online medicine
+                delivery saved me so much time. Thank you, HealthMatrix!
+              </p>
+              <div className="testimonials__card-footer">
+                <div className="testimonials__card-avatar">
+                  <img
+                    src="https://randomuser.me/api/portraits/men/32.jpg"
+                    alt="Rajeev Menon"
+                  />
+                </div>
+                <div className="testimonials__card-info">
+                  <h4 className="testimonials__card-name">Rajeev Menon</h4>
+                  <p className="testimonials__card-role">Patient</p>
+                </div>
+                <div className="testimonials__card-stars">
+                  {renderStars(5)}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Testiomonials message*/}
+        {/* Testimonials feedback form modal */}
         {showForm && (
-          <div className="testimonials__modal">
-            <div className="testimonials__modal-inner">
+          <div className="testimonials__modal" onClick={() => setShowForm(false)}>
+            <div className="testimonials__modal-inner" onClick={(e) => e.stopPropagation()}>
+              <h2 className="testimonials__modal-title">Share Your Experience</h2>
+              <p className="testimonials__modal-subtitle">Your feedback helps us improve patient care</p>
               <form
                 onSubmit={handleFeedback}
                 className="testimonials__form"
               >
-                <input
-                  type="text"
-                  value={fullName}
-                  onChange={(e) => setFullName(e.target.value)}
-                  placeholder="Your Full Name"
-                  className="testimonials__input"
-                />
-                <input
-                  type="text"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Your Email Address"
-                  className="testimonials__input"
-                />
-                <input
-                  type="text"
-                  value={country}
-                  onChange={(e) => setCountry(e.target.value)}
-                  placeholder="Country"
-                  className="testimonials__input"
-                />
-                <input
-                  type="text"
-                  value={state}
-                  onChange={(e) => setState(e.target.value)}
-                  placeholder="State"
-                  className="testimonials__input"
-                />
+                <div className="testimonials__form-row">
+                  <input
+                    type="text"
+                    value={fullName}
+                    onChange={(e) => setFullName(e.target.value)}
+                    placeholder="Full Name"
+                    className="testimonials__input"
+                  />
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Email Address"
+                    className="testimonials__input"
+                  />
+                </div>
+                <div className="testimonials__form-row">
+                  <input
+                    type="text"
+                    value={country}
+                    onChange={(e) => setCountry(e.target.value)}
+                    placeholder="Country"
+                    className="testimonials__input"
+                  />
+                  <input
+                    type="text"
+                    value={state}
+                    onChange={(e) => setState(e.target.value)}
+                    placeholder="State"
+                    className="testimonials__input"
+                  />
+                </div>
                 <textarea
                   value={review}
                   onChange={(e) => setReview(e.target.value)}
-                  placeholder="Your Review"
-                  className="testimonials__input"
+                  placeholder="Tell us about your experience..."
+                  className="testimonials__input testimonials__textarea"
+                  rows={4}
                 ></textarea>
-                <input
-                  type="file"
-                  value={image}
-                  onChange={(e) => setImage(e.target.value)}
-                  placeholder="Profile Picture URL"
-                  className="testimonials__input"
-                />
-                <button
-                  type="submit"
-                  className="testimonials__submit"
-                >
-                  Submit
-                </button>
+                <div className="testimonials__form-actions">
+                  <button
+                    type="button"
+                    onClick={() => setShowForm(false)}
+                    className="testimonials__cancel-btn"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    className="testimonials__submit"
+                  >
+                    Submit Review
+                  </button>
+                </div>
               </form>
             </div>
           </div>
